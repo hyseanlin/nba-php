@@ -14,6 +14,7 @@
 	$stmt = $db_link -> prepare($sql_select);
 	$stmt -> bind_param("i", $_GET["id"]);
 	$stmt -> execute();
+	
 	$stmt -> bind_result($player_id, $player_name, $team_id, $place, $height, $weight, $year, $country);
 	$stmt -> fetch();
 ?>

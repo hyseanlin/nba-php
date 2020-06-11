@@ -54,7 +54,7 @@ if(isset($_POST["action"])&&($_POST["action"]=="add")){
     </tr>
     <tr>
       <td colspan="2" align="center">
-      <input name="action" type="hidden" value="add">
+      <input type="hidden" name="action" value="add">
       <input type="submit" name="button" id="button" value="新增資料">
       <input type="reset" name="button2" id="button2" value="重新填寫">
       </td>
