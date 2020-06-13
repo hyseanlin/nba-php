@@ -50,12 +50,15 @@
       <td>球隊編號</td>
 			<td>
 <?php
-	echo "<select name=\"teamID\" id=\"teamID\">";
+	echo "<select name=\"teamID\" id=\"teamID\">\n";
 	while($row_result=$result->fetch_assoc())
 	{
-    echo "<option value=\"" . $row_result["t_ID"] . "\">" . $row_result["t_name"] . "</option>";
+		if ($row_result["t_ID"] == $team_id)
+    	echo "\t<option value=\"" . $row_result["t_ID"] . "\" selected>" . $row_result["t_name"] . "</option>\n";
+		else
+    	echo "\t<option value=\"" . $row_result["t_ID"] . "\">" . $row_result["t_name"] . "</option>\n";
 	}
-	echo "</select>";
+	echo "</select>\n";
 ?>			
 			</td>
     </tr>
