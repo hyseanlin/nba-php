@@ -18,12 +18,17 @@
 		//重新導向回到主畫面
 		header("Location: player_data.php");
 	}
+	$sql_query = "SELECT t_ID, t_name FROM teams";
+	$result = $db_link->query($sql_query);	
+
 	$sql_select = "SELECT p_ID, p_name, teamID, place, height, weight, year, country FROM players WHERE p_ID = ?";
 	$stmt = $db_link -> prepare($sql_select);
 	$stmt -> bind_param("i", $_GET["id"]);
 	$stmt -> execute();
+	
 	$stmt -> bind_result($player_id, $player_name, $team_id, $place, $height, $weight, $year, $country);
 	$stmt -> fetch();
+
 ?>
 <html>
 <head>
@@ -42,7 +47,17 @@
       <td>球員</td><td><input type="text" name="p_name" id="p_name" value="<?php echo $player_name;?>"></td>
     </tr>
     <tr>
-      <td>球隊編號</td><td><input type="text" name="teamID" id="teamID" value="<?php echo $team_id;?>"></td>
+      <td>球隊編號</td>
+			<td>
+<?php
+	echo "<select name=\"teamID\" id=\"teamID\">";
+	while($row_result=$result->fetch_assoc())
+	{
+    echo "<option value=\"" . $row_result["t_ID"] . "\">" . $row_result["t_name"] . "</option>";
+	}
+	echo "</select>";
+?>			
+			</td>
     </tr>
     <tr>
       <td>位置</td><td><input type="text" name="place" id="place" value="<?php echo $place;?>"></td>

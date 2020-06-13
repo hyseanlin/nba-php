@@ -1,8 +1,9 @@
 <?php 
+include("connMysqlObj.php");
 if(isset($_POST["action"])&&($_POST["action"]=="add")){
-	include("connMysqlObj.php");
 	$sql_query = "INSERT INTO players (p_name, teamID, place, height, weight, year, country) VALUES (?, ?, ?, ?, ? ,? ,?)";
 	$stmt = $db_link -> prepare($sql_query);
+	// bind paramter (繫結參數)
 	$stmt -> bind_param("sisddis",
                       $_POST["p_name"],
                       $_POST["teamID"],
@@ -16,7 +17,9 @@ if(isset($_POST["action"])&&($_POST["action"]=="add")){
 	$db_link -> close();
 	//重新導向回到主畫面
 	header("Location: player_data.php");
-}	
+}
+$sql_query = "SELECT t_ID, t_name FROM teams";
+$result = $db_link->query($sql_query);	
 ?>
 <html>
 <head>
@@ -35,7 +38,17 @@ if(isset($_POST["action"])&&($_POST["action"]=="add")){
       <td>球員姓名</td><td><input type="text" name="p_name" id="p_name"></td>
     </tr>
     <tr>
-      <td>球隊編號</td><td><input type="text" name="teamID" id="teamID"></td>
+      <td>球隊編號</td>
+			<td>
+<?php
+	echo "<select name=\"teamID\" id=\"teamID\">\n";
+	while($row_result=$result->fetch_assoc())
+	{
+    echo "\t<option value=\"" . $row_result["t_ID"] . "\">" . $row_result["t_name"] . "</option>\n";
+	}
+	echo "</select>\n";
+?>			
+			</td>
     </tr>
     <tr>
       <td>位置</td><td><input type="text" name="place" id="place"></td>
