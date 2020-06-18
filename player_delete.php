@@ -46,7 +46,7 @@
       <td>球員姓名</td><td><?php echo $player_name;?></td>
     </tr>
     <tr>
-      <td>球隊編號</td><td><?php echo $team_name; ?></td>
+      <td>球隊名稱</td><td><?php echo $team_name; ?></td>
     </tr>
     <tr>
       <td>位置</td><td><?php echo $place; ?></td>

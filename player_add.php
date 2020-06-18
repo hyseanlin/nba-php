@@ -38,7 +38,7 @@ $result = $db_link->query($sql_query);
       <td>球員姓名</td><td><input type="text" name="p_name" id="p_name"></td>
     </tr>
     <tr>
-      <td>球隊編號</td>
+      <td>球隊名稱</td>
 			<td>
 <?php
 	echo "<select name=\"teamID\" id=\"teamID\">\n";
