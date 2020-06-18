@@ -1,6 +1,9 @@
 <?php
 include("connMysqlObj.php");
-$sql_query = "SELECT `players`.`p_ID`, `players`.`p_name`, `teams`.`t_name`, `players`.`place`, `players`.`height`, `players`.`weight`, `players`.`year`, `players`.`country` FROM `players`
+$sql_query = "SELECT `players`.`p_ID`, `players`.`p_name`, `teams`.`t_name`, 
+										 `players`.`place`, `players`.`height`, `players`.`weight`,
+										 `players`.`year`, `players`.`country`
+										 FROM `players`
 							INNER JOIN `teams`
 							ON players.`teamID` = `teams`.`t_ID`
 							ORDER BY p_ID ASC"; // DESC
@@ -34,7 +37,7 @@ $total_records = $result->num_rows;
     <tr>
         <th>編號</th>
         <th>球員</th>
-        <th>球隊名字</th>
+        <th>球隊名稱</th>
         <th>位置</th>
         <th>身高</th>
         <th>體重</th>

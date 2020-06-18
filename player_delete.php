@@ -23,7 +23,6 @@
 	$stmt2 = $db_link -> prepare($sql_query);
 	$stmt2 -> bind_param("i", $team_id);
 	$stmt2 -> execute();
-	
 	$stmt2 -> bind_result($team_name);
 	$stmt2 -> fetch();
 	$stmt2 -> close();
