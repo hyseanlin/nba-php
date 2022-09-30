@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `edit_time` datetime DEFAULT NULL COMMENT '修改時間',
   `del_time` datetime DEFAULT NULL COMMENT '刪除時間',
   PRIMARY KEY (`p_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=506 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=506 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `players`
@@ -568,7 +568,7 @@ CREATE TABLE IF NOT EXISTS `teams` (
   `edit_time` datetime DEFAULT NULL,
   `del_time` datetime DEFAULT NULL,
   PRIMARY KEY (`t_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `teams`
